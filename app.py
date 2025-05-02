@@ -19,8 +19,8 @@ def display_chart_with_insight(chart_func, *args, insight_text: str = "", **kwar
         st.markdown("**🔍 Insight:**")
         st.markdown(insight_text)
 
-with st.expander("🔍 Insight Summary", expanded=True):
-    show_insight(filtered_df)
+# with st.expander("🔍 Insight Summary", expanded=True):
+#     show_insight(filtered_df)
 
 with st.expander("📄 Filtered Data Preview"):
     st.dataframe(filtered_df.head(20), height=250)
@@ -101,33 +101,33 @@ with tab2:
         """
     )
 
-# =================== TAB 3: Weather =====================
-with tab3:
-    col7, col8 = st.columns(2)
-    with col7:
-        display_chart_with_insight(
-            plot_scatter_plot, filtered_df, 'temp', 'cnt', 'season', "Temperature vs Rentals",
-            insight_text="""
-            - Semakin tinggi suhu, semakin tinggi jumlah peminjaman.
-            - Efek ini konsisten di semua musim kecuali musim dingin.
-            - Titik tertinggi terlihat antara 25-30°C.
-            """
-        )
-    with col8:
-        display_chart_with_insight(
-            plot_boxplot, filtered_df, 'weathersit', 'cnt', "Boxplot: Rentals by Weather Condition",
-            insight_text="""
-            - Cuaca cerah menunjukkan jumlah peminjaman tertinggi.
-            - Cuaca buruk (hujan/salju) secara drastis menurunkan jumlah pengguna.
-            - Mist (kabut) memiliki variasi tertinggi antar data.
-            """
-        )
+# # =================== TAB 3: Weather =====================
+# with tab3:
+#     col7, col8 = st.columns(2)
+#     with col7:
+#         display_chart_with_insight(
+#             plot_scatter_plot, filtered_df, 'temp', 'cnt', 'season', "Temperature vs Rentals",
+#             insight_text="""
+#             - Semakin tinggi suhu, semakin tinggi jumlah peminjaman.
+#             - Efek ini konsisten di semua musim kecuali musim dingin.
+#             - Titik tertinggi terlihat antara 25-30°C.
+#             """
+#         )
+#     with col8:
+#         display_chart_with_insight(
+#             plot_boxplot, filtered_df, 'weathersit', 'cnt', "Boxplot: Rentals by Weather Condition",
+#             insight_text="""
+#             - Cuaca cerah menunjukkan jumlah peminjaman tertinggi.
+#             - Cuaca buruk (hujan/salju) secara drastis menurunkan jumlah pengguna.
+#             - Mist (kabut) memiliki variasi tertinggi antar data.
+#             """
+#         )
 
-    display_chart_with_insight(
-        plot_heatmap, filtered_df, ['temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt'], "Correlation Heatmap",
-        insight_text="""
-        - Temperatur memiliki korelasi positif yang kuat dengan total peminjaman.
-        - Registered users menunjukkan korelasi paling tinggi terhadap `cnt`.
-        - Kelembaban dan kecepatan angin cenderung memiliki korelasi negatif lemah.
-        """
-    )
+#     display_chart_with_insight(
+#         plot_heatmap, filtered_df, ['temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt'], "Correlation Heatmap",
+#         insight_text="""
+#         - Temperatur memiliki korelasi positif yang kuat dengan total peminjaman.
+#         - Registered users menunjukkan korelasi paling tinggi terhadap `cnt`.
+#         - Kelembaban dan kecepatan angin cenderung memiliki korelasi negatif lemah.
+    #     """
+    # )
