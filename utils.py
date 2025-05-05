@@ -69,11 +69,3 @@ def plot_bar_chart_multi_col(df, value_cols, title):
     totals = df[value_cols].sum()
     st.bar_chart(totals)
 
-def show_insight(df):
-    st.markdown("### 🔍 Insights")
-    most_season = df.groupby('season')['cnt'].sum().idxmax()
-    busiest_hour = df.groupby('hr')['cnt'].mean().idxmax()
-    top_day = df.loc[df['cnt'].idxmax(), 'dteday'].strftime('%Y-%m-%d')
-    st.markdown(f"- Most rented season: **{most_season}**")
-    st.markdown(f"- Busiest hour (avg): **{busiest_hour}**")
-    st.markdown(f"- Highest rental day: **{top_day}**")
